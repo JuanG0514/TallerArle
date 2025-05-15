@@ -33,6 +33,7 @@ let turno = 0
             alert(lista);
         }
     }
+
     
     function atender(){
     alert(`atendendiedo al señor ${cola[0].nombre} en el turno ${cola[0].turno}`)
