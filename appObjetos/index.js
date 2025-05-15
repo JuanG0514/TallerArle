@@ -5,13 +5,17 @@ const MAX_COLA = 7;
 let turno = 0
 
 
-    const agregarCliente = (agregado)=>{
+    const agregarCliente = (nombre)=>{
      turno++
-     if(agregado != null){
-             cola.push(agregado)
-            alert(`El cliente ${agregado} fue añadido exitosamente con el turno ${turno}`);
-      }
 
+        const  objetos = {
+            cliente:nombre,
+            turno:turno
+        }
+     if(nombre != null){
+             cola.push(objetos)
+            alert(`El cliente ${objetos.nombre} fue añadido exitosamente con el turno ${objetos.turno}`);
+      }
       console.log(cola)
     } 
 
@@ -23,12 +27,7 @@ let turno = 0
             for (let i = 0; i < cola.length; i++) {
                 const x = cola[i];
                 lista +=  `El señor ${x.nombre
-
-
-
-
-                    
-                } va a ser atendido con el turno ${x.turno}`
+                } va a ser atendido con el turno ${x.turno}\n`
                 
             }
             alert(lista);
@@ -45,8 +44,8 @@ let turno = 0
         let opcion = prompt("Ingresa la opción que quieres realizar:\n1. Añadir cliente\n2. Mostrar clientes\n3. Atender\n4. Salir");
         
         if (opcion === "1") {
-            let agregado = prompt("Ingresa el nombre del cliente");
-            agregarCliente(agregado);
+            let nombre = prompt("Ingresa el nombre del cliente");
+            agregarCliente(nombre);
         } else if (opcion === "2") {
             mostrarCola();
         } else if (opcion === "3") {
