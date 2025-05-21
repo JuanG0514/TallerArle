@@ -36,12 +36,24 @@ class ColaClientes{
 
         }
     }
+
+   atenderCliente() {
+    if (this.clientes.length === 0) {
+        console.log("NO HAY CLIENTES POR ATENDER");
+    } else {
+        const clienteAtendido = this.clientes.shift();
+        console.log(`El cliente ${clienteAtendido.nombre} fue atendido correctamente`);
+    }
 }
+}
+
 
 
 const cola = new ColaClientes()
 cola.agregarCliente("juan");
-cola.agregarCliente("juan");
-cola.agregarCliente("juan");
+cola.agregarCliente("sa");
+cola.agregarCliente("ni");
 cola.agregarCliente("juan");
 cola.verCola()
+cola.atenderCliente()
+console.log(cola);
