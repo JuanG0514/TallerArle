@@ -1,59 +1,44 @@
-class Cliente{
+class Clientes{
     constructor(nombre,turno){
         this.nombre = nombre
-        this.turno = turno
+        this.turno=turno
     }
 }
 
 class ColaClientes{
     constructor(){
-        this.clientes = []
+        this.cliente = []
         this.turnoActual = 1
     }
 
 
     agregarCliente(nombre){
-        if(nombre != null){
-            const objeto = new Cliente
-            (nombre,this.turnoActual++)
-            this.clientes.push(objeto);
-            console.log(`El cliente ${objeto.nombre} se añadio con el turno ${objeto.turno}`);
+        if(nombre!=null){
+            const objeto = new Clientes(nombre,this.turnoActual++);
+            this.cliente.push(objeto);
+            console.log(`el cliente ${objeto.nombre} fue agregado con el turno ${objeto.turno}`);
         }else{
-            console.log("NO hay personas en la cola");
-            
+            console("Error al ingrsar el usuario")
         }
     }
 
     verCola(){
-        if(this.clientes.length=== 0){
-            console.log("No hay personas en la cola");
+        let lista ="";
+        if(this.cliente.length===0){
+            console.log("No hay personas por mostrar")
         }else{
-            let lista = ""
-            this.clientes.forEach((clientes, index) => {
-                lista += `${index+1}. ${clientes.nombre} que va a ser atendido en el turno ${clientes.turno} \n`
-            })
-            console.log(lista)
-
-        }
-    }
-
-   atenderCliente() {
-    if (this.clientes.length === 0) {
-        console.log("NO HAY CLIENTES POR ATENDER");
-    } else {
-        const clienteAtendido = this.clientes.shift();
-        console.log(`El cliente ${clienteAtendido.nombre} fue atendido correctamente`);
+            this.cliente.forEach((clientes,index)=>{
+                lista += `${index+1}. ${clientes.nombre} y tiene el turno${clientes.turno}\n`
+            }) 
+            
+        } console.log(lista)
     }
 }
-}
 
 
+const cola = new ColaClientes;
 
-const cola = new ColaClientes()
-cola.agregarCliente("juan");
-cola.agregarCliente("sa");
-cola.agregarCliente("ni");
-cola.agregarCliente("juan");
+cola.agregarCliente("juan")
+cola.agregarCliente("andrees")
+cola.agregarCliente("juan")
 cola.verCola()
-cola.atenderCliente()
-console.log(cola);
